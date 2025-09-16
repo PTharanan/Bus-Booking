@@ -1,0 +1,42 @@
+<nav class="bg-white/60 backdrop-blur-xl text-black fixed w-full">
+  <ul class="flex items-center justify-between px-6">
+    
+    <!-- Logo aligned to the left -->
+    <li>
+      <a routerLink="/">
+        <img src="../../assets/nav-logo.png" alt="Home" class="h-20">
+      </a>
+    </li>
+
+    <!-- Navigation items aligned to the right -->
+    <li>
+      <ul class="flex items-center space-x-6">
+        <li>
+          <a routerLink="/" routerLinkActive="border-b-4 border-red-600" [routerLinkActiveOptions]="{ exact: true }"
+            class="hover:text-sky-50 hover:bg-red-600 p-2 rounded pr-6 pl-6">Home</a>
+        </li>
+
+        <ng-container *ngIf="isLogin; then authenticated; else nonAuthenticated"></ng-container>
+
+        <ng-template #nonAuthenticated>
+          <li>
+            <a routerLink="/login" routerLinkActive="border-b-4 border-red-600"
+              class="hover:text-sky-50 hover:bg-red-600 p-2 rounded pr-6 pl-6">Login</a>
+          </li>
+        </ng-template>
+
+        <ng-template #authenticated>
+          <li>
+            <a routerLink="admin/dashboard" routerLinkActive="border-b-4 border-red-600"
+              class="cursor-pointer hover:text-sky-50 hover:bg-red-600 p-2 rounded pr-6 pl-6">Admin-Panel</a>
+          </li>
+          <li>
+            <a routerLink="/login" routerLinkActive="border-b-4 border-red-600" (click)="logout()"
+              class="cursor-pointer hover:text-sky-50 hover:bg-red-600 p-2 rounded pr-6 pl-6">Logout</a>
+          </li>
+        </ng-template>
+      </ul>
+    </li>
+
+  </ul>
+</nav>

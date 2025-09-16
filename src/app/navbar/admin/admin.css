@@ -1,0 +1,11 @@
+#Nav-admin{
+    height: 100vh;
+    width: 25vw;
+    background-image: url("../../../assets/admin-sideNav.jpg");
+}
+
+#Con-admin{
+    height: 100vh;
+    width: 75vw;
+    background-image: url("../../../assets/admin-bg.jpg");
+}
