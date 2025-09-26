@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+.search {
+    width: 80vw;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table {
+    width: 80vw;
+    height: 60vh;
+    display: flex;
+    margin-top: 2%;
+    justify-content: center;
+}
