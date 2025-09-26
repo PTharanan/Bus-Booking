@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Auth } from '../../auth';
 
 @Component({
   selector: 'app-login',
@@ -10,18 +11,16 @@ import { Router } from '@angular/router';
 export class Login {
   adminName: string = "Admin";
   adminPassword: string = "Admin";
-  constructor(private router: Router) {}
+
+  constructor(private authService: Auth, private router: Router) { }
 
   adminData(User: string, Password: string) {
-
     if (User === this.adminName && Password === this.adminPassword) {
-      localStorage.setItem('isLogin', 'true');
-      //admin-panel 
+      this.authService.login(); // ✅ triggers UI update
       this.router.navigate(['admin/dashboard']);
-    }
-    else {
+    } else {
       alert('Invalid Data');
-
     }
+
   }
 }

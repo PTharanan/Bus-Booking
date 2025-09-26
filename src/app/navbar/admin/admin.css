@@ -1,11 +1,17 @@
 #Nav-admin{
     height: 100vh;
-    width: 25vw;
-    background-image: url("../../../assets/admin-sideNav.jpg");
+    width: 20vw;
+    background-color: rgb(252, 199, 199);
+}
+
+#Nav-admin-opt{
+    width: 20vw;
+    height: 100vh;
+    z-index: 1;
 }
 
 #Con-admin{
     height: 100vh;
-    width: 75vw;
-    background-image: url("../../../assets/admin-bg.jpg");
+    width: 80vw;
+    background-image: url("../../../assets/home-bg.png");
 }

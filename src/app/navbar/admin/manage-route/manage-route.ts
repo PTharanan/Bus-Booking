@@ -1,19 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ROUTE_DATA } from '../../../data/route-data'
-import { Table } from '../../../table/table';
+import { Table } from '../../../reusable/table/table';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-manage-route',
-  imports: [CommonModule, Table],
+  imports: [CommonModule, Table, ReactiveFormsModule],
   templateUrl: './manage-route.html',
   styleUrl: './manage-route.css'
 })
 export class ManageRoute {
-  showAddRoute = false;
+  showFormBox = false;
 
   toggleAddRoute() {
-    this.showAddRoute = !this.showAddRoute;
+    this.showFormBox = !this.showFormBox;
   }
 
   routes = ROUTE_DATA;
@@ -25,4 +27,27 @@ export class ManageRoute {
     { key: 'travalTime', label: 'Traval Time' },
     { key: 'price', label: 'Price' }
   ];
+
+  selectedRow: any = null;
+
+  handleRouteEdit(row: any) {
+    this.selectedRow = row;
+    this.routeForm.patchValue(row);
+    this.showFormBox = true;
+  }
+
+  @Input() formData: any;
+
+  routeForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.routeForm = this.fb.group({
+      routeId: [''],
+      from: [''],
+      to: [''],
+      travalTime: [''],
+      price: ['']
+    });
+  }
+
 }

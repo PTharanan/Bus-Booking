@@ -33,11 +33,11 @@ export const routes: Routes = [
             },
             {
                 path: 'manage-route',
-                component:ManageRoute
+                component: ManageRoute
             },
             {
                 path: 'manage-schedule',
-                component:ManageSchedule
+                component: ManageSchedule
             }
         ]
     }

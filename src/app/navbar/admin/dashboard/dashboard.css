@@ -1,9 +1,10 @@
-#left-items{
-    width: 37.5vw;
-    height: 100vh;
+#top-items{
+    width: 75vw;
+    height: 49vh;
 }
 
-#right-items{
-    width: 37.5vw;
-    height: 100vh;
+#bottom-items{
+    width: 75vww;
+    height: 50vh;
+    
 }

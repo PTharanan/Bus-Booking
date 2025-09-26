@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive} from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Auth } from '../auth';
 
 @Component({
   selector: 'app-navbar',
@@ -9,17 +10,18 @@ import { RouterLink, RouterLinkActive} from '@angular/router';
   styleUrl: './navbar.css'
 })
 export class Navbar {
-    isLogin: boolean = false;
+  isLogin = false;
+
+  constructor(private authService: Auth) { }
 
   ngOnInit() {
-    // Login status localStorage-இல் இருந்தா அதை பார்க்கலாம்
-    const status = localStorage.getItem('isLogin');
-    this.isLogin = status === 'true';
+    this.authService.isLoggedIn$.subscribe(status => {
+      this.isLogin = status;
+    });
   }
 
   logout() {
-    localStorage.setItem('isLogin', 'false');
-    localStorage.removeItem('isLogin');
-    this.isLogin = false;
+    this.authService.logout();
   }
+
 }

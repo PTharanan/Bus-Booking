@@ -1,22 +1,35 @@
-<div class="flex text-sky-50">
-    <div class="flex flex-col justify-center" id="left-items">
-        <p class="bg-white/40 backdrop-blur-xl rounded-xl text-center w-60 p-4 m-10 ml-40 mt-20 hover:bg-white/20 ">
+<div class="flex flex-col text-gray-800">
+    <div class="flex justify-around" id="top-items">
+        <p class="bg-white/40 backdrop-blur-xl rounded-xl text-center w-60 p-4 m-10 mt-26 hover:bg-white/20 ">
             <img src="../../../../assets/nav-logo.png" alt="">
             Available Buses : {{availableBuses}}
         </p>
-        <p class="bg-white/40 backdrop-blur-xl rounded-xl text-center w-60 p-4 m-10 ml-40 hover:bg-white/20">
+        <p class="bg-white/40 backdrop-blur-xl rounded-xl text-center w-60 p-4 m-10 mt-26 hover:bg-white/20">
+            <img src="../../../../assets/nav-logo.png" alt="">
+            Running Buses : {{runningBuses}}
+        </p>
+        <p class="bg-white/40 backdrop-blur-xl rounded-xl text-center w-60 p-4 m-10 mt-26 hover:bg-white/20">
+            <img src="../ ../../../assets/nav-logo.png" alt="">
+            Repair Buses : {{repairBuses}}
+        </p>
+        <p class="bg-white/40 backdrop-blur-xl rounded-xl text-center w-60 p-4 m-10 mt-26 hover:bg-white/20">
             <img src="../../../../assets/route.png" alt="">
             Available Routes : {{availableRoutes}}
         </p>
     </div>
-    <div class="flex flex-col justify-center" id="right-items">
-        <p class="bg-white/40 backdrop-blur-xl rounded-xl text-center w-60 p-4 m-10 mr-40 hover:bg-white/20">
-            <img src="../../../../assets/nav-logo.png" alt="">
-            Running Buses : {{runningBuses}}
-        </p>
-        <p class="bg-white/40 backdrop-blur-xl rounded-xl text-center w-60 p-4 m-10 mr-40 hover:bg-white/20">
-            <img src="../../../../assets/nav-logo.png" alt="">
-            Repair Buses : {{repairBuses}}
-        </p>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 text-gray-700" id="bottom-items">
+        <!-- Bar Chart -->
+        <div
+            class="bg-white/40 backdrop-blur-md rounded-xl p-6 ml-4  h-full flex flex-col justify-center">
+            <h2 class="text-xl font-bold text-center mb-4">Bus Status - Bar Chart</h2>
+            <canvas id="busBarChart" class="w-full h-[70vh]"></canvas>
+        </div>
+
+        <!-- Pie Chart -->
+        <div
+            class="bg-white/80 backdrop-blur-md rounded-xl p-8 mr-2 shadow-md w-full max-w-[600px] mx-auto overflow-hidden h-full flex flex-col items-center justify-center">
+            <h2 class="text-xl font-bold text-center mb-4">Bus Status - Pie Chart</h2>
+            <canvas id="routePieChart" class="w-[80w] h-[70vh]"></canvas>
+        </div>
     </div>
 </div>

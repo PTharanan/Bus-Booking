@@ -2,29 +2,33 @@
     <div class="flex justify-between items-center m-4 w-280 px-3 bg-white/40 backdrop-blur-md rounded-xl overflow-auto">
         <input type="text" placeholder="Bus No..."
             class="px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 w-full sm:w-1/3 bg-white/10 backdrop-blur-md" />
-        <button (click)="toggleAddBox()"
-            class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-md shadow text-sm self-end sm:self-auto m-4 cursor-pointer">
-            + Add Bus
+        <button (click)="toggleFormBox()"
+            class="bg-red-200 rounded text-black hover:bg-red-300 px-6 py-2 self-end sm:self-auto m-4 cursor-pointer">
+            +Add Bus
         </button>
     </div>
-    <app-table [columns]="columns" [data]="buses"></app-table>
+    <app-table [columns]="columns" [data]="buses" (editClicked)="handleBusEdit($event)"></app-table>
 
-    <div *ngIf="showAddBox" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
+    <div *ngIf="showFormBox" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
         <div class="bg-white rounded-lg p-6 w-full max-w-md shadow-lg">
-            <h2 class="text-xl font-bold mb-4">Add New Bus</h2>
-            <form>
-                <input type="text" placeholder="Bus No" class="w-full mb-3 p-2 border rounded" />
-                <input type="text" placeholder="Contact No" class="w-full mb-3 p-2 border rounded" />
-                <input type="text" placeholder="Conductor No" class="w-full mb-3 p-2 border rounded" />
-                <input type="text" placeholder="Seats" class="w-full mb-3 p-2 border rounded" />
-                <select class="w-full mb-3 p-2 border rounded">
-                    <option disabled selected>Select</option>
+            <h2 class="text-xl font-bold mb-4">{{Title}} </h2>
+            <form [formGroup]="busForm">
+                <input type="text" placeholder="Bus No" formControlName="busNo"
+                    class="w-full mb-3 p-2 border rounded" />
+                <input type="text" placeholder="Contact No" formControlName="contactNo"
+                    class="w-full mb-3 p-2 border rounded" />
+                <input type="text" placeholder="Conductor No" formControlName="conductorNo"
+                    class="w-full mb-3 p-2 border rounded" />
+                <input type="text" placeholder="Seats" formControlName="seatsNo"
+                    class="w-full mb-3 p-2 border rounded" />
+                <select class="w-full mb-3 p-2 border rounded" formControlName="available">
+                    <option disabled>Select</option>
                     <option>Available</option>
                     <option>Service</option>
                 </select>
-                <!-- Add more fields here -->
+                <!-- Btns -->
                 <div class="flex justify-end gap-2 mt-4">
-                    <button type="reset" (click)="toggleAddBox()"
+                    <button type="reset" (click)="toggleFormBox()"
                         class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded cursor-pointer">Cancel</button>
                     <button type="submit"
                         class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 cursor-pointer">Save</button>

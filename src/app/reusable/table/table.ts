@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,6 +10,13 @@ import { CommonModule } from '@angular/common';
 export class Table {
   @Input() columns: { key: string; label: string }[] = [];
   @Input() data: any[] = [];
+
+  @Output() editClicked = new EventEmitter<any>();
+
+  onEdit(index: number, row: any) {
+    this.editClicked.emit(row); 
+    this.editClicked.emit(index);
+  }
 
   deleteRow(index: number) {
     if (confirm('Are you sure you want to delete this row?')) {

@@ -30,7 +30,7 @@ export class Home {
     }
 
     else if (selectedDate < currentDate) {
-      alert('Invalid Date - Past Date Selected');
+      alert('Past Date Selected - Change Date');
       return;
     }
   }

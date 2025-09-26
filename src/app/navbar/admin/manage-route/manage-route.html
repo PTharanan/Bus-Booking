@@ -1,26 +1,32 @@
-<div class="flex flex-col justify-evenly items-center min-h-screen" id="bus-main">
+<div class="flex flex-col justify-evenly items-center min-h-screen" id="route-main">
     <div class="flex justify-between items-center m-4 w-280 px-3 bg-white/40 backdrop-blur-md rounded-xl overflow-auto">
         <input type="text" placeholder="Route ID..."
             class="px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 w-full sm:w-1/3 bg-white/10 backdrop-blur-md" />
         <button (click)="toggleAddRoute()"
-            class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-md shadow text-sm self-end sm:self-auto m-4 cursor-pointer">
-            + Add Route
+            class="bg-red-200 rounded text-black hover:bg-red-300 px-6 py-2 self-end sm:self-auto m-4 cursor-pointer">
+            +Add Route
         </button>
     </div>
-   <app-table [columns]="columns" [data]="routes"></app-table>
-    <div *ngIf="showAddRoute" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
+    <app-table [columns]="columns" [data]="routes" (editClicked)="handleRouteEdit($event)"></app-table>
+
+    <div *ngIf="showFormBox" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
         <div class="bg-white rounded-lg p-6 w-full max-w-md shadow-lg">
             <h2 class="text-xl font-bold mb-4">Add New Route</h2>
-            <form>
-                <input type="text" placeholder="Route ID" class="w-full mb-3 p-2 border rounded" />
-                <input type="text" placeholder="From" class="w-full mb-3 p-2 border rounded" />
-                <input type="text" placeholder="To" class="w-full mb-3 p-2 border rounded" />
-                <input type="text" placeholder="Traval Time" class="w-full mb-3 p-2 border rounded" />
-                <input type="text" placeholder="Price LK" class="w-full mb-3 p-2 border rounded" />
-                <!-- Add more fields here -->
+            <form [formGroup]="routeForm">
+                <input type="text" placeholder="Route ID" formControlName="routeId"
+                    class="w-full mb-3 p-2 border rounded" />
+                <input type="text" placeholder="From" formControlName="from" class="w-full mb-3 p-2 border rounded" />
+                <input type="text" placeholder="To" formControlName="to" class="w-full mb-3 p-2 border rounded" />
+                <input type="text" placeholder="Traval Time" formControlName="travalTime"
+                    class="w-full mb-3 p-2 border rounded" />
+                <input type="text" placeholder="Price LK" formControlName="price"
+                    class="w-full mb-3 p-2 border rounded" />
+                <!-- Btns -->
                 <div class="flex justify-end gap-2 mt-4">
-                    <button type="reset" (click)="toggleAddRoute()" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded cursor-pointer">Cancel</button>
-                    <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 cursor-pointer">Save</button>
+                    <button type="reset" (click)="toggleAddRoute()"
+                        class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded cursor-pointer">Cancel</button>
+                    <button type="submit"
+                        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 cursor-pointer">Save</button>
                 </div>
             </form>
         </div>

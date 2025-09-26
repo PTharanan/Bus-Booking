@@ -32,13 +32,13 @@ export const BUS_DATA = [
     contactNo: '775901264',
     conductorNo: '775901264',
     seatsNo: 54,
-    available: ' Service'
+    available: 'Service'
   },
   {
     busNo: 'ND-9945',
     contactNo: '775901264',
     conductorNo: '775901264',
     seatsNo: 50,
-    available: ' Service'
+    available: 'Service'
   }
 ];
