@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,8 @@ export class Home {
   fromRoute: string = '';
   toRoute: string = '';
   dateData: string = '';
+
+  constructor(private router: Router) { }
 
   getBusData(from: string, to: string, date: string) {
     this.fromRoute = from;
@@ -32,6 +35,11 @@ export class Home {
     else if (selectedDate < currentDate) {
       alert('Past Date Selected - Change Date');
       return;
+    }
+
+    else {
+      this.router.navigate(['search'], { queryParams: { from: this.fromRoute, to: this.toRoute, from_date: this.dateData } });
+
     }
   }
 }

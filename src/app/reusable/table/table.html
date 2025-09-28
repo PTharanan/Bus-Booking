@@ -10,7 +10,7 @@
                 </tr>
             </thead>
             <tbody>
-                @for (row of data; track $index) {
+                @for (row of filteredData; track $index) {
                 <tr class="hover:bg-gray-100/50 transition duration-200 text-gray-800">
                     @for (col of columns; track col.key) {
                     <td class="px-6 py-3">

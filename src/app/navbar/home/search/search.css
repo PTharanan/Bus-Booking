@@ -1,0 +1,20 @@
+#Search-main {
+    display: flex;
+    background-image: url("../../../../assets/home-bg.png");
+}
+
+#travel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 10vh;
+}
+
+#img {
+    width: 10vw;
+}
+
+span {
+    margin-right: 4%;
+}

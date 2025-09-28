@@ -2,20 +2,30 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Table } from '../../../reusable/table/table';
 import { BUS_DATA } from '../../../data/bus-data';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 @Component({
   selector: 'app-manage-bus',
-  imports: [CommonModule, Table, ReactiveFormsModule],
+  imports: [CommonModule, Table, ReactiveFormsModule, FormsModule],
   templateUrl: './manage-bus.html',
   styleUrl: './manage-bus.css'
 })
 export class ManageBus {
   showFormBox = false;
   Title: any = "";
+  Searchdata: string = "".toLowerCase();
+
+  filtered() {
+    if (!this.Searchdata || this.Searchdata.toString().trim() === '') {
+      return this.buses;
+    }
+    return this.buses.filter(bus =>
+      bus.busNo.toString().toLowerCase().includes(this.Searchdata.toString())
+    );
+  }
 
   toggleFormBox() {
     this.showFormBox = !this.showFormBox;

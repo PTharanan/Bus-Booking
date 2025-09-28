@@ -2,17 +2,27 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ROUTE_DATA } from '../../../data/route-data'
 import { Table } from '../../../reusable/table/table';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-manage-route',
-  imports: [CommonModule, Table, ReactiveFormsModule],
+  imports: [CommonModule, Table, ReactiveFormsModule, FormsModule],
   templateUrl: './manage-route.html',
   styleUrl: './manage-route.css'
 })
 export class ManageRoute {
   showFormBox = false;
+  Searchdata: string = "";
+
+  filtered() {
+    if (!this.Searchdata || this.Searchdata.toString().trim() === '') {
+      return this.routes;
+    }
+    return this.routes.filter(route =>
+      route.routeId.toString().includes(this.Searchdata.toString())
+    );
+  }
 
   toggleAddRoute() {
     this.showFormBox = !this.showFormBox;

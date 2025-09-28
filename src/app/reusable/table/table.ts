@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 })
 export class Table {
   @Input() columns: { key: string; label: string }[] = [];
-  @Input() data: any[] = [];
+  @Input() filteredData: any[] = [];
 
   @Output() editClicked = new EventEmitter<any>();
 
@@ -20,7 +20,7 @@ export class Table {
 
   deleteRow(index: number) {
     if (confirm('Are you sure you want to delete this row?')) {
-      this.data.splice(index, 1);
+      this.filteredData.splice(index, 1);
     }
   }
 

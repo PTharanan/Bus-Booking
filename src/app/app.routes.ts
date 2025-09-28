@@ -7,6 +7,8 @@ import { ManageBus } from './navbar/admin/manage-bus/manage-bus';
 import { Dashboard } from './navbar/admin/dashboard/dashboard';
 import { ManageRoute } from './navbar/admin/manage-route/manage-route';
 import { ManageSchedule } from './navbar/admin/manage-schedule/manage-schedule';
+import { Search } from './navbar/home/search/search';
+import { ManageCustomer } from './navbar/admin/manage-customer/manage-customer';
 
 
 export const routes: Routes = [
@@ -19,6 +21,10 @@ export const routes: Routes = [
         component: Login
     },
     {
+        path: 'search',
+        component:Search
+    },
+    {
         path: 'admin',
         component: Admin,
         canActivate: [Auth],
@@ -28,18 +34,21 @@ export const routes: Routes = [
                 component: Dashboard
             },
             {
-                path: 'manage-bus',
+                path: 'bus',
                 component: ManageBus
             },
             {
-                path: 'manage-route',
+                path: 'route',
                 component: ManageRoute
             },
             {
-                path: 'manage-schedule',
+                path: 'schedule',
                 component: ManageSchedule
+            },
+            {
+                path:'customer',
+                component: ManageCustomer
             }
         ]
     }
-
 ];

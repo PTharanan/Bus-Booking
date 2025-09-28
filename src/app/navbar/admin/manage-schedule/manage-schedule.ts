@@ -2,17 +2,27 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { SCHEDULE_DATA } from '../../../data/schedule-data'
 import { Table } from '../../../reusable/table/table';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-manage-schedule',
-  imports: [CommonModule, Table, ReactiveFormsModule],
+  imports: [CommonModule, Table, ReactiveFormsModule, FormsModule],
   templateUrl: './manage-schedule.html',
   styleUrl: './manage-schedule.css'
 })
 export class ManageSchedule {
   showFormBox = false;
+  Searchdata: string = "";
+
+  filtered() {
+    if (!this.Searchdata || this.Searchdata.toString().trim() === '') {
+      return this.schedules;
+    }
+    return this.schedules.filter(schedule =>
+      schedule.scheduleId.toString().includes(this.Searchdata.toString())
+    );
+  }
 
   toggleAddSchedule() {
     this.showFormBox = !this.showFormBox;

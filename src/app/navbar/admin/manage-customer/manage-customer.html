@@ -1,0 +1,29 @@
+<div class="flex flex-col justify-evenly items-center min-h-screen" id="customer-main">
+    <div class="search">
+        <div
+            class="flex justify-between items-center m-4 w-280 px-3 bg-white/40 backdrop-blur-md rounded-xl overflow-auto h-20">
+            <input type="text" placeholder="Ticket Code..." [(ngModel)]="TicketCode"
+                class="px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 w-full sm:w-1/3 bg-white/10 backdrop-blur-md" />
+        </div>
+    </div>
+    <app-table [columns]="columns" [filteredData]="filtered()" (editClicked)="handleRouteEdit($event)"></app-table>
+
+    <div *ngIf="showFormBox" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md shadow-lg">
+            <h2 class="text-xl font-bold mb-4">Edit Book Deatils</h2>
+            <form [formGroup]="customerForm">
+                <input type="text" placeholder="Schedule ID" formControlName="scheduleId"
+                    class="w-full mb-3 p-2 border rounded" />
+                <input type="text" placeholder="seatNo" formControlName="seatNo" class="w-full mb-3 p-2 border rounded" />
+                
+                <!-- Btns -->
+                <div class="flex justify-end gap-2 mt-4">
+                    <button type="reset" (click)="toggleAddRoute()"
+                        class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded cursor-pointer">Cancel</button>
+                    <button type="submit"
+                        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 cursor-pointer">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
