@@ -1,19 +1,22 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
 export class Home {
 
-  fromRoute: string = '';
+  fromRoute: string ='';
   toRoute: string = '';
   dateData: string = '';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute,) { }
 
   getBusData(from: string, to: string, date: string) {
     this.fromRoute = from;
@@ -41,6 +44,13 @@ export class Home {
       this.router.navigate(['search'], { queryParams: { from: this.fromRoute, to: this.toRoute, from_date: this.dateData } });
 
     }
+  }
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.fromRoute = params['from'];
+      this.toRoute = params['to'];
+      this.dateData = params['from_date'];
+    });
   }
 }
 

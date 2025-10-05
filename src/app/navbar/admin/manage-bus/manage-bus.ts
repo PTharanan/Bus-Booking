@@ -4,19 +4,26 @@ import { Table } from '../../../reusable/table/table';
 import { BUS_DATA } from '../../../data/bus-data';
 import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { SearchFilter } from '../../../reusable/search-filter/search-filter';
 
 @Component({
   selector: 'app-manage-bus',
-  imports: [CommonModule, Table, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, Table, ReactiveFormsModule, FormsModule, SearchFilter],
   templateUrl: './manage-bus.html',
   styleUrl: './manage-bus.css'
 })
 export class ManageBus {
+  btnName:string="Add Bus";
+  placehol:string="Bus No...";
   showFormBox = false;
   Title: any = "";
   Searchdata: string = "".toLowerCase();
+
+  handleText(value: string) {
+    this.Searchdata = value;
+    console.log(value);
+  }
+
 
   filtered() {
     if (!this.Searchdata || this.Searchdata.toString().trim() === '') {
@@ -29,7 +36,7 @@ export class ManageBus {
 
   toggleFormBox() {
     this.showFormBox = !this.showFormBox;
-    this.Title = "Add Bus Deatils";
+    this.Title = "Add Bus Details";
   }
 
   buses = BUS_DATA

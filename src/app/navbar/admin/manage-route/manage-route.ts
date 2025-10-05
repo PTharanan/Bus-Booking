@@ -4,16 +4,24 @@ import { ROUTE_DATA } from '../../../data/route-data'
 import { Table } from '../../../reusable/table/table';
 import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SearchFilter } from '../../../reusable/search-filter/search-filter';
 
 @Component({
   selector: 'app-manage-route',
-  imports: [CommonModule, Table, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, Table, ReactiveFormsModule, FormsModule, SearchFilter],
   templateUrl: './manage-route.html',
   styleUrl: './manage-route.css'
 })
 export class ManageRoute {
+  btnName: string = "Add Route";
+  placehol: string = "Route ID...";
   showFormBox = false;
+  Title: any = "";
   Searchdata: string = "";
+
+  handleText(value: string) {
+    this.Searchdata = value;
+  }
 
   filtered() {
     if (!this.Searchdata || this.Searchdata.toString().trim() === '') {
@@ -24,8 +32,9 @@ export class ManageRoute {
     );
   }
 
-  toggleAddRoute() {
+  toggleFormBox() {
     this.showFormBox = !this.showFormBox;
+    this.Title = "Add New Route";
   }
 
   routes = ROUTE_DATA;
@@ -44,6 +53,7 @@ export class ManageRoute {
     this.selectedRow = row;
     this.routeForm.patchValue(row);
     this.showFormBox = true;
+    this.Title = "Edit Route Deatils";
   }
 
   @Input() formData: any;

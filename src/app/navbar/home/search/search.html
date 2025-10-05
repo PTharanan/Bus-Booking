@@ -1,5 +1,5 @@
 <div class="min-h-screen bg-cover bg-center" id="Search-main">
-    <section class="mt-22 flex items-center justify-center w-full h-20 bg-red-200 italic font-medium">
+    <section class="mt-22 flex items-center justify-center w-full h-20 bg-red-200 italic font-medium z-44">
         <div class="flex items-center justify-center w-200">
             <span>{{from}}</span>
             <span>
@@ -8,9 +8,17 @@
             <span>{{to}}</span>
             <span>{{date}}</span>
             <span>
-                <button
+                <button (click)="modify()"
                     class="bg-yellow-400 p-2 rounded text-sky-50 hover:bg-yellow-500 cursor-pointer font-semibold w-30 not-italic">Modify</button>
             </span>
         </div>
     </section>
+    <div id="card-box" class="z-40">
+        <div class="card">
+            <img src="../../../../assets/bus.jpg" id="bus-card-img" alt="Bus-img">
+            {{from}}
+            {{to}}
+            {{date}}
+        </div>
+    </div>
 </div>

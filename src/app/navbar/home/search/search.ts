@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -12,7 +13,7 @@ export class Search {
   to: string = '';
   date: Date = new Date();
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -20,5 +21,8 @@ export class Search {
       this.to = params['to'];
       this.date = params['from_date'];
     });
+  }
+  modify() {
+    this.router.navigate([''], { queryParams: { from: this.from, to: this.to, from_date: this.date } });
   }
 }
