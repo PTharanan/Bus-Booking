@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { BusBookCard } from './bus-book-card/bus-book-card';
 
 @Component({
   selector: 'app-search',
-  imports: [],
+  imports: [BusBookCard],
   templateUrl: './search.html',
   styleUrl: './search.css'
 })
@@ -12,6 +13,7 @@ export class Search {
   from: string = '';
   to: string = '';
   date: Date = new Date();
+  Duration:string = "5:30 Hours";
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 

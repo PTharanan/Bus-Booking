@@ -14,11 +14,9 @@
         </div>
     </section>
     <div id="card-box" class="z-40">
-        <div class="card">
-            <img src="../../../../assets/bus.jpg" id="bus-card-img" alt="Bus-img">
-            {{from}}
-            {{to}}
-            {{date}}
-        </div>
+        <app-bus-book-card [from]="from" [to]="to" [date]="date" [closeDate]="date" />
+        <app-bus-book-card [from]="from" [to]="to" [date]="date" [closeDate]="date" />
+        <app-bus-book-card [from]="from" [to]="to" [date]="date" [closeDate]="date" />
+        <app-bus-book-card [from]="from" [to]="to" [date]="date" [closeDate]="date" />
     </div>
 </div>

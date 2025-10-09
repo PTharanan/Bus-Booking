@@ -1,0 +1,73 @@
+<div class="card">
+
+    <div id="bus-card">
+        <img src="../../../../assets/bus.jpg" id="bus-card-img" alt="Bus-img">
+    </div>
+
+    <div class="card_item">
+        <p>
+            Depature
+        </p>
+        {{from}}
+        <p>
+            Date
+        </p>
+        {{date}}
+    </div>
+
+    <div class="card_item">
+
+        <img src="../../../../../assets/arrow-right.png" alt="arrow" id="img-right">
+
+    </div>
+
+    <div class="card_item">
+        <p>
+            Arrival
+        </p>
+        {{to}}
+        <p>
+            Duration
+        </p>
+        {{Duration}}
+    </div>
+
+    <div class="card_item">
+        <p>
+            Booking Closing Date
+        </p>
+        {{closeDate}}
+        <p>
+            Booking Closing Time
+        </p>
+        {{closeTime}}
+    </div>
+
+    <!-- <div id="">
+        <p>
+            Rs.
+        </p>
+        {{price}}
+        <p>
+            Available
+            Seats
+        </p>
+        <br>
+        <button >Book Seat</button>
+    </div> -->
+    <div id="card-details">
+        <div>
+            <p class="text-sky-700 text-xl font-bold">Rs. {{price}}</p>
+        </div>
+        <div class="mt-4">
+            <span>
+                Available Seats {{freeSeats}}
+            </span>
+        </div>
+    </div>
+
+    <div id="bookBtn">
+        <button>Book Seat</button>
+    </div>
+
+</div>
