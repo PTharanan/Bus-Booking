@@ -48,7 +48,7 @@
 
   <!-- Mobile Dropdown Menu -->
   <ul [ngClass]="{ 'hidden': !menuOpen, 'flex': menuOpen }"
-    class="md:hidden absolute top-full left-0 w-full bg-white/60 backdrop-blur-xl flex-col space-y-4 px-6 py-4 transition-all duration-300 ease-in-out z-40">
+    class="md:hidden absolute top-full left-0 w-full bg-white/80 backdrop-blur-2xl flex-col space-y-4 px-6 py-4 transition-all duration-300 ease-in-out z-40">
     <li (click)="toggleMenu()">
       <a routerLink="/" routerLinkActive="border-b-4 border-red-600" [routerLinkActiveOptions]="{ exact: true }" *ngIf="menuOpen"
         class="hover:text-sky-50 hover:bg-red-600 p-2 rounded px-6 block">Home</a>
