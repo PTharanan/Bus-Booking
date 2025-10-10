@@ -24,4 +24,10 @@ export class Navbar {
     this.authService.logout();
   }
 
+  menuOpen: boolean = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
 }
