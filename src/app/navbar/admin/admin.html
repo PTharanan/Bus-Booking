@@ -18,24 +18,24 @@
       <ul class="flex flex-col justify-center text-center text-black p-4 ring-gray-700 w-[20vw] h-screen z-[1]"
         id="Nav-admin-opt">
         <li routerLinkActive="ring-2" [routerLinkActiveOptions]="{ exact: true }" (click)="closeSidebar()"
-          class="rounded bg-white/40 hover:bg-white/80 text-black p-4 m-2 mb-10 cursor-pointer">
-          <a routerLink="dashboard">Dashboard</a>
+          routerLink="dashboard" class="rounded bg-white/40 hover:bg-white/80 text-black p-4 m-2 mb-10 cursor-pointer">
+          <a>Dashboard</a>
         </li>
-        <li routerLinkActive="ring-2" (click)="closeSidebar()"
+        <li routerLinkActive="ring-2" (click)="closeSidebar()" routerLink="bus"
           class="rounded bg-white/40 hover:bg-white/80 text-black p-4 m-2 mb-10 cursor-pointer">
-          <a routerLink="bus">Buses</a>
+          <a>Buses</a>
         </li>
-        <li routerLinkActive="ring-2" (click)="closeSidebar()"
+        <li routerLinkActive="ring-2" (click)="closeSidebar()" routerLink="route"
           class="rounded bg-white/40 hover:bg-white/80 text-black p-4 m-2 mb-10 cursor-pointer">
-          <a routerLink="route">Routes</a>
+          <a>Routes</a>
         </li>
-        <li routerLinkActive="ring-2" (click)="closeSidebar()"
+        <li routerLinkActive="ring-2" (click)="closeSidebar()" routerLink="schedule"
           class="rounded bg-white/40 hover:bg-white/80 text-black p-4 m-2 mb-10 cursor-pointer">
-          <a routerLink="schedule">Schedule</a>
+          <a>Schedule</a>
         </li>
-        <li routerLinkActive="ring-2" (click)="closeSidebar()"
+        <li routerLinkActive="ring-2" (click)="closeSidebar()" routerLink="customer"
           class="rounded bg-white/40 hover:bg-white/80 text-black p-4 m-2 mb-10 cursor-pointer">
-          <a routerLink="customer">Customer</a>
+          <a>Customer</a>
         </li>
       </ul>
     </div>
