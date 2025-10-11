@@ -4,7 +4,7 @@
 </button>
 
 <!-- overlay for close -->
-<div class="lg:hidden" *ngIf="showSidebar" (click)="closeSidebar()"></div>
+<div class="fixed inset-0 bg-black/30 z-4 lg:hidden" *ngIf="showSidebar" (click)="closeSidebar()"></div>
 
 <div class="flex justify-left items-center min-h-screen">
   <div class="h-screen w-[20vw] bg-[#fcc7c7] Nav-admin relative" [class.show]="showSidebar">
