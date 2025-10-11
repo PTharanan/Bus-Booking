@@ -1,21 +1,47 @@
 @import "tailwindcss";
 
-.search {
+.ad-cont {
+    position: fixed;
+    bottom: 0%;
     width: 80vw;
-    height: 40vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 90vh;
+    overflow-x: hidden;
 }
 
-.table {
+.ad-cont-top {
+    position: fixed;
+    bottom: 60vh;
+    width: 80vw;
+    height: 30vh;
+}
+
+.ad-cont-bot {
+    position: fixed;
+    bottom: 0vh;
     width: 80vw;
     height: 60vh;
-    display: flex;
-    margin-top: 2%;
-    justify-content: center;
 }
 
-body{
+body {
     background-color: black;
+}
+
+@media (max-width: 1024px) {
+    .ad-cont {
+        width: 100vw;
+    }
+
+    .ad-cont-top {
+        width: 100vw;
+    }
+
+    .ad-cont-bot {
+        width: 100vw;
+    }
+
+    #main-search-filter{
+        position: fixed;
+        top: 18vh;
+        width: 100vw;
+    }
 }

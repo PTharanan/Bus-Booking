@@ -1,12 +1,16 @@
-<div class="flex flex-col justify-evenly items-center min-h-screen" id="customer-main">
-    <div class="search">
-        <div
-            class="flex justify-between items-center m-4 w-280 px-3 bg-white/40 backdrop-blur-md rounded-xl overflow-auto h-20">
-            <input type="text" placeholder="Ticket Code..." [(ngModel)]="TicketCode"
-                class="px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 w-full sm:w-1/3 bg-white/10 backdrop-blur-md" />
+<div class="flex flex-col ad-cont">
+    <div class="search ad-cont-top">
+        <div id="main-search-filter">
+            <div
+                class="flex justify-between items-center m-4 w-280 px-3 bg-white/40 backdrop-blur-md rounded-xl overflow-auto h-20">
+                <input type="text" placeholder="Ticket Code..." [(ngModel)]="TicketCode"
+                    class="px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 w-full sm:w-1/3 bg-white/10 backdrop-blur-md" />
+            </div>
         </div>
     </div>
-    <app-table [columns]="columns" [filteredData]="filtered()" (editClicked)="handleRouteEdit($event)"></app-table>
+    <div class="ad-cont-bot">
+        <app-table [columns]="columns" [filteredData]="filtered()" (editClicked)="handleRouteEdit($event)" />
+    </div>
 
     <div *ngIf="showFormBox" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
         <div class="bg-white rounded-lg p-6 w-full max-w-md shadow-lg">
@@ -14,8 +18,9 @@
             <form [formGroup]="customerForm">
                 <input type="text" placeholder="Schedule ID" formControlName="scheduleId"
                     class="w-full mb-3 p-2 border rounded" />
-                <input type="text" placeholder="seatNo" formControlName="seatNo" class="w-full mb-3 p-2 border rounded" />
-                
+                <input type="text" placeholder="seatNo" formControlName="seatNo"
+                    class="w-full mb-3 p-2 border rounded" />
+
                 <!-- Btns -->
                 <div class="flex justify-end gap-2 mt-4">
                     <button type="reset" (click)="toggleAddRoute()"

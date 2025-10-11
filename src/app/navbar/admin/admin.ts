@@ -9,5 +9,15 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   styleUrl: './admin.css'
 })
 export class Admin {
+  showSidebar = false;
 
+  toggleSidebar() {
+    this.showSidebar = !this.showSidebar;
+    console.log("p");
+  }
+
+  closeSidebar() {
+    this.showSidebar = false;
+    console.log("n");
+  }
 }

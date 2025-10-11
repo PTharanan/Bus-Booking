@@ -1,8 +1,14 @@
-<div class="flex justify-between items-center m-4 w-280 px-3 bg-white/40 backdrop-blur-md rounded-xl overflow-auto">
-    <input type="text" placeholder="{{placehol}}" (keyup)="onInputChange()" [(ngModel)]="Searchdata"
-        class="px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 w-full sm:w-1/3 bg-white/10 backdrop-blur-md" />
-    <button (click)="triggerToggle()"
-        class="bg-red-200 rounded text-black hover:bg-red-300 px-6 py-2 self-end sm:self-auto m-4 cursor-pointer">
-        +{{btnName}}
-    </button>
+<div id="main-search-filter">
+    <div
+        class="flex flex-col p-4 sm:flex-row sm:justify-between sm:items-center gap-2 m-4 w-full sm:w-[90vw] lg:w-[80vw] px-3 bg-white/40 backdrop-blur-md rounded-xl overflow-auto">
+
+        <input type="text" placeholder="{{ placehol }}" (keyup)="onInputChange()" [(ngModel)]="Searchdata"
+            class="px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 w-full sm:w-2/3 bg-white/10 backdrop-blur-md" />
+
+        <button (click)="triggerToggle()"
+            class="bg-red-200 rounded text-black hover:bg-red-300 px-6 py-2 w-full sm:w-auto cursor-pointer">
+            +{{ btnName }}
+        </button>
+
+    </div>
 </div>

@@ -1,34 +1,47 @@
+<button class="fixed top-25 lg:hidden  left-1 z-10 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg "
+  (click)="toggleSidebar()" *ngIf="!showSidebar">
+  <img src="../../../assets/caret-right.png" class="w-6 h-6">
+</button>
+
+<!-- overlay for close -->
+<div class="lg:hidden" *ngIf="showSidebar" (click)="closeSidebar()"></div>
+
 <div class="flex justify-left items-center min-h-screen">
-  <div id="Nav-admin">
+  <div class="h-screen w-[20vw] bg-[#fcc7c7] Nav-admin relative" [class.show]="showSidebar">
+    <!-- Close button inside sidebar (mobile only) -->
+    <button class="lg:hidden absolute top-4 right-4 z-10 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg"
+      (click)="closeSidebar()">
+      <img src="../../../assets/caret-left.png" class="w-5 h-5">
+    </button>
+
     <div class="flex justify-center items-center min-h-screen">
-      <div>
-        <ul class="flex flex-col justify-center text-center text-black p-4 ring-gray-700" id="Nav-admin-opt">
-          <li routerLinkActive="ring-2" [routerLinkActiveOptions]="{ exact: true }"
-            class="rounded bg-white/40 hover:bg-white/80 text-black p-4 m-2 mb-10 cursor-pointer">
-            <a routerLink="dashboard">Dashboard</a>
-          </li>
-          <li routerLinkActive="ring-2"
-            class="rounded bg-white/40 hover:bg-white/80 text-black p-4 m-2 mb-10 cursor-pointer">
-            <a routerLink="bus">Buses</a>
-          </li>
-          <li routerLinkActive="ring-2"
-            class="rounded bg-white/40 hover:bg-white/80 text-black p-4 m-2 mb-10 cursor-pointer">
-            <a routerLink="route">Routes</a>
-          </li>
-          <li routerLinkActive="ring-2"
-            class="rounded bg-white/40 hover:bg-white/80 text-black p-4 m-2 mb-10 cursor-pointer">
-            <a routerLink="schedule">Schedule</a>
-          </li>
-          <li routerLinkActive="ring-2"
-            class="rounded bg-white/40 hover:bg-white/80 text-black p-4 m-2 mb-10 cursor-pointer">
-            <a routerLink="customer">Customer</a>
-          </li>
-        </ul>
-      </div>
+      <ul class="flex flex-col justify-center text-center text-black p-4 ring-gray-700 w-[20vw] h-screen z-[1]"
+        id="Nav-admin-opt">
+        <li routerLinkActive="ring-2" [routerLinkActiveOptions]="{ exact: true }" (click)="closeSidebar()"
+          class="rounded bg-white/40 hover:bg-white/80 text-black p-4 m-2 mb-10 cursor-pointer">
+          <a routerLink="dashboard">Dashboard</a>
+        </li>
+        <li routerLinkActive="ring-2" (click)="closeSidebar()"
+          class="rounded bg-white/40 hover:bg-white/80 text-black p-4 m-2 mb-10 cursor-pointer">
+          <a routerLink="bus">Buses</a>
+        </li>
+        <li routerLinkActive="ring-2" (click)="closeSidebar()"
+          class="rounded bg-white/40 hover:bg-white/80 text-black p-4 m-2 mb-10 cursor-pointer">
+          <a routerLink="route">Routes</a>
+        </li>
+        <li routerLinkActive="ring-2" (click)="closeSidebar()"
+          class="rounded bg-white/40 hover:bg-white/80 text-black p-4 m-2 mb-10 cursor-pointer">
+          <a routerLink="schedule">Schedule</a>
+        </li>
+        <li routerLinkActive="ring-2" (click)="closeSidebar()"
+          class="rounded bg-white/40 hover:bg-white/80 text-black p-4 m-2 mb-10 cursor-pointer">
+          <a routerLink="customer">Customer</a>
+        </li>
+      </ul>
     </div>
   </div>
 
-  <div id="Con-admin" class="flex items-center bg-cover bg-center min-h-screen">
+  <div class="flex items-center min-h-screen h-screen w-[80vw] bg-cover bg-center bg-img-con" id="Con-admin">
     <router-outlet />
   </div>
 </div>
