@@ -20,6 +20,7 @@
 
 @media (max-width: 1024px) {
     .ad-cont {
+        padding-top: 8%;
         width: 100vw;
     }
 }
