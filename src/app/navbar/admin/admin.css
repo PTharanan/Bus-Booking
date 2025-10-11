@@ -10,7 +10,8 @@
   z-index: 5;
   width: 20vw;
   height: 100vh;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  will-change: transform;
 }
 
 @media (max-width: 1024px) {
