@@ -17,11 +17,10 @@ export class ManageBus {
   placehol:string="Bus No...";
   showFormBox = false;
   Title: any = "";
-  Searchdata: string = "".toLowerCase();
+  Searchdata: string = "";
 
   handleText(value: string) {
-    this.Searchdata = value;
-    console.log(value);
+    this.Searchdata = value.toLowerCase();
   }
 
 
