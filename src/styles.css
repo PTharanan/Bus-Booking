@@ -11,14 +11,15 @@
 .ad-cont-top {
     position: fixed;
     top: 10vh;
-    bottom: 65vh;
+    bottom: 60vh;
     width: 80vw;
     height: 30vh;
-    background-color: aqua;
+    background-color: rgb(97, 54, 240);
 }
 
 .ad-cont-bot {
     position: fixed;
+    top: 40vh;
     bottom: 0vh;
     width: 80vw;
     height: 60vh;
