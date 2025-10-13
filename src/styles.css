@@ -10,9 +10,11 @@
 
 .ad-cont-top {
     position: fixed;
-    bottom: 60vh;
+    top: 10vh;
+    bottom: 65vh;
     width: 80vw;
     height: 30vh;
+    background-color: aqua;
 }
 
 .ad-cont-bot {
