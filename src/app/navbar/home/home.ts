@@ -1,8 +1,6 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
 
 @Component({
   selector: 'app-home',
@@ -11,40 +9,61 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './home.css'
 })
 export class Home {
-
-  fromRoute: string ='';
+  fromRoute: string = '';
   toRoute: string = '';
   dateData: string = '';
 
-  constructor(private router: Router, private route: ActivatedRoute,) { }
+  @ViewChild('fromRef') fromRef!: ElementRef;
+  @ViewChild('toRef') toRef!: ElementRef;
+  @ViewChild('dateRef') dateRef!: ElementRef;
 
-  getBusData(from: string, to: string, date: string) {
-    this.fromRoute = from;
-    this.toRoute = to;
-    this.dateData = date;
+  constructor(private router: Router, private route: ActivatedRoute) { }
+
+  getBusData() {
+    if (!this.fromRoute) {
+      alert('Please select From location');
+      this.fromRef.nativeElement.focus();
+      return;
+    }
+
+    if (!this.toRoute) {
+      alert('Please select To location');
+      this.toRef.nativeElement.focus();
+      return;
+    }
+
+    if (!this.dateData) {
+      alert('Please select a Date');
+      this.dateRef.nativeElement.focus();
+      return;
+    }
 
     const selectedDate = new Date(this.dateData);
     const currentDate = new Date();
-
-    // நேரத்தை 0 பண்ணி, compare பண்ணும் போது நேரம் இடையிலா வரும்
     selectedDate.setHours(0, 0, 0, 0);
     currentDate.setHours(0, 0, 0, 0);
 
     if (this.fromRoute === this.toRoute) {
       alert('No Route Found - Change Location');
+      this.toRef.nativeElement.focus();
       return;
     }
 
-    else if (selectedDate < currentDate) {
+    if (selectedDate < currentDate) {
       alert('Past Date Selected - Change Date');
+      this.dateRef.nativeElement.focus();
       return;
     }
 
-    else {
-      this.router.navigate(['search'], { queryParams: { from: this.fromRoute, to: this.toRoute, from_date: this.dateData } });
-
-    }
+    this.router.navigate(['search'], {
+      queryParams: {
+        from: this.fromRoute,
+        to: this.toRoute,
+        from_date: this.dateData
+      }
+    });
   }
+
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.fromRoute = params['from'];
@@ -53,4 +72,3 @@ export class Home {
     });
   }
 }
-
