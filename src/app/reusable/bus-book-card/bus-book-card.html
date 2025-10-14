@@ -1,0 +1,48 @@
+<div class="flex flex-wrap items-center w-[90vw] m-4 p-6 rounded-2xl backdrop-blur-[60px] bg-white/40">
+
+  <!-- Bus Image -->
+  <div class="h-[20vh] mr-2">
+    <img src="../../../../assets/bus.jpg" alt="Bus-img" class="w-[15vw] rounded-lg" />
+  </div>
+
+  <!-- Departure & Date -->
+  <div class="flex flex-col justify-center ml-2 font-bold w-[8vw] h-[20vh]">
+    <p class="text-xs font-normal mb-4 mt-1">Depature</p>
+    {{ from }}
+    <p class="text-xs font-normal mb-4 mt-1">Date</p>
+    {{ date }}
+  </div>
+
+  <!-- Arrow -->
+  <div class="flex flex-col justify-center ml-2 w-[8vw] h-[20vh]">
+    <img src="../../../../../assets/arrow-right.png" alt="arrow" class="w-[4vw]" />
+  </div>
+
+  <!-- Arrival & Duration -->
+  <div class="flex flex-col justify-center ml-2 font-bold w-[8vw] h-[20vh]">
+    <p class="text-xs font-normal mb-4 mt-1">Arrival</p>
+    {{ to }}
+    <p class="text-xs font-normal mb-4 mt-1">Duration</p>
+    {{ Duration }}
+  </div>
+
+  <!-- Booking Close Info -->
+  <div class="flex flex-col justify-center ml-2 font-bold w-[8vw] h-[20vh]">
+    <p class="text-xs font-normal mb-4 mt-1">Booking Closing Date</p>
+    {{ closeDate }}
+    <p class="text-xs font-normal mb-4 mt-1">Booking Closing Time</p>
+    {{ closeTime }}
+  </div>
+
+  <!-- Price & Seats -->
+  <div class="flex flex-col items-center justify-center ml-6 w-[20vw] h-[20vh]">
+    <p class="text-gray-700 text-xl font-bold">Rs. {{ price }}</p>
+    <span class="mt-4">Available Seats {{ freeSeats }}</span>
+  </div>
+
+  <!-- Book Button -->
+  <div class="bg-black text-white text-center rounded-lg px-4 py-2 mt-4 ml-4 w-[10vw]">
+    <button class="cursor-pointer">Book Seat</button>
+  </div>
+
+</div>
