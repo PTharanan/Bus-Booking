@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { BusBookCard } from './bus-book-card/bus-book-card';
+import { BusBookCard } from '../../../reusable/bus-book-card/bus-book-card';
 
 @Component({
   selector: 'app-search',
