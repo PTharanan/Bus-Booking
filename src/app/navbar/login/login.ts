@@ -47,4 +47,10 @@ export class Login implements AfterViewInit {
       this.usernameInput.nativeElement.focus();
     }
   }
+
+  showPassword = false;
+
+  togglePassword(): void {
+    this.showPassword = !this.showPassword;
+  }
 }
