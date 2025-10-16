@@ -8,7 +8,7 @@
 
             <!-- From Location -->
             <span
-                class="text-sm md:text-base lg:text-lg font-semibold text-gray-800 truncate max-w-[60px] sm:max-w-[100px] md:max-w-none">
+                class="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-gray-800 truncate max-w-[60px] sm:max-w-[100px] md:max-w-none">
                 {{from}}
             </span>
 
@@ -20,7 +20,7 @@
 
             <!-- To Location -->
             <span
-                class="text-sm md:text-base lg:text-lg font-semibold text-gray-800 truncate max-w-[60px] sm:max-w-[100px] md:max-w-none">
+                class="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-gray-800 truncate max-w-[60px] sm:max-w-[100px] md:max-w-none">
                 {{to}}
             </span>
 
@@ -41,7 +41,7 @@
     </section>
 
     <!-- Cards Container - Fully Responsive -->
-    <div class="w-screen h-[84vh] lg:h-[80vh]  flex flex-col items-center overflow-y-scroll fixed bottom-0 z-40">
+    <div class="w-screen h-[84vh] lg:h-[80vh] flex flex-col items-center overflow-y-scroll fixed bottom-0 z-40">
         <app-bus-book-card [from]="from" [to]="to" [date]="date" [closeDate]="date" />
         <app-bus-book-card [from]="from" [to]="to" [date]="date" [closeDate]="date" />
         <app-bus-book-card [from]="from" [to]="to" [date]="date" [closeDate]="date" />
