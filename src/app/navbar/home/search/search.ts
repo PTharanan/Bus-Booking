@@ -1,11 +1,13 @@
+// search.ts
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common'; // ✅ இத add பண்ணுங்க!
 import { BusBookCard } from '../../../reusable/bus-book-card/bus-book-card';
 
 @Component({
   selector: 'app-search',
-  imports: [BusBookCard],
+  imports: [BusBookCard, CommonModule], // ✅ CommonModule-ஐ imports-ல add பண்ணுங்க!
   templateUrl: './search.html',
   styleUrl: './search.css'
 })
@@ -13,7 +15,7 @@ export class Search {
   from: string = '';
   to: string = '';
   date: Date = new Date();
-  Duration:string = "5:30 Hours";
+  Duration: string = "5:30 Hours";
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
@@ -24,7 +26,14 @@ export class Search {
       this.date = params['from_date'];
     });
   }
+
   modify() {
-    this.router.navigate([''], { queryParams: { from: this.from, to: this.to, from_date: this.date } });
+    this.router.navigate([''], {
+      queryParams: {
+        from: this.from,
+        to: this.to,
+        from_date: this.date
+      }
+    });
   }
 }
