@@ -14,5 +14,7 @@ export class BusBookCard {
   @Input() closeTime:string = "16:00";
   @Input() price:string = "1,527.00";
   @Input() freeSeats:number = 37;
-  Duration: string = "5:30 Hours";
+  Depaturetime: string = "17:00";
+  Duration: string = "5:30";
+  
 }
