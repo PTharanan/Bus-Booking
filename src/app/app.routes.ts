@@ -9,6 +9,7 @@ import { ManageRoute } from './navbar/admin/manage-route/manage-route';
 import { ManageSchedule } from './navbar/admin/manage-schedule/manage-schedule';
 import { Search } from './navbar/home/search/search';
 import { ManageCustomer } from './navbar/admin/manage-customer/manage-customer';
+import { Seats } from './navbar/home/seats/seats';
 
 
 export const routes: Routes = [
@@ -22,7 +23,11 @@ export const routes: Routes = [
     },
     {
         path: 'search',
-        component:Search
+        component: Search
+    },
+    {
+        path: 'seats',
+        component: Seats
     },
     {
         path: 'admin',
@@ -46,7 +51,7 @@ export const routes: Routes = [
                 component: ManageSchedule
             },
             {
-                path:'customer',
+                path: 'customer',
                 component: ManageCustomer
             }
         ]

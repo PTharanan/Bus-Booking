@@ -2,12 +2,12 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common'; // ✅ இத add பண்ணுங்க!
+import { CommonModule } from '@angular/common';
 import { BusBookCard } from '../../../reusable/bus-book-card/bus-book-card';
 
 @Component({
   selector: 'app-search',
-  imports: [BusBookCard, CommonModule], // ✅ CommonModule-ஐ imports-ல add பண்ணுங்க!
+  imports: [BusBookCard, CommonModule],
   templateUrl: './search.html',
   styleUrl: './search.css'
 })
@@ -16,6 +16,11 @@ export class Search {
   to: string = '';
   date: Date = new Date();
   Duration: string = "5:30 Hours";
+  closeTime: string = "16:00";
+  price: string = "1,527.00";
+  freeSeats: number = 37;
+  Depaturetime: string = "17:00";
+  closeDate!: Date;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
