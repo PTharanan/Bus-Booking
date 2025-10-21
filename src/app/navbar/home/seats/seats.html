@@ -6,14 +6,13 @@
             class="flex flex-col lg:flex-row lg:flex-wrap items-center w-[100vw] lg:w-[90vw] mt-6 sm:m-3 md:m-4 p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl backdrop-blur-[60px] bg-white/40 shadow-lg hover:shadow-xl transition-shadow">
 
             <!-- Bus Image -->
-            <div class="w-full lg:w-auto h-auto lg:h-[20vh] mb-4 lg:mb-0 lg:mr-4 flex justify-center lg:justify-start">
+            <div class="w-full lg:w-auto h-auto hidden lg:block lg:h-[20vh] mb-4 lg:mb-0 lg:mr-4 flex justify-center lg:justify-start">
                 <img src="../../../../assets/bus.jpg" alt="Bus-img"
                     class="w-full sm:w-[200px] md:w-[250px] lg:w-[15vw] rounded-lg object-cover shadow-md" />
             </div>
 
-            <!-- Mobile & Tablet: Grid Layout for Info -->
-            <div class="w-full lg:hidden grid grid-cols-2 gap-4 mb-4">
-
+            <!-- Mobile & Tablet: Row Layout for Info -->
+            <div class="w-full lg:hidden flex flex-wrap justify-between gap-4 mb-4">
                 <!-- Departure -->
                 <div class="flex flex-col">
                     <p class="text-[10px] sm:text-xs text-gray-600 font-normal mb-1">Departure</p>
@@ -32,19 +31,19 @@
                     <p class="font-bold text-xs sm:text-sm md:text-base text-gray-800">{{ date }}</p>
                 </div>
 
-                <!-- Start Time -->
+                <!-- Departure Time -->
                 <div class="flex flex-col">
-                    <p class="text-[10px] sm:text-xs text-gray-600 font-normal mb-1">Depature Time</p>
+                    <p class="text-[10px] sm:text-xs text-gray-600 font-normal mb-1">Departure Time</p>
                     <p class="font-bold text-xs sm:text-sm md:text-base text-gray-800">{{ Depaturetime }}</p>
                 </div>
 
-                <!-- Booking Close Date -->
+                <!-- Close Date -->
                 <div class="flex flex-col">
                     <p class="text-[10px] sm:text-xs text-gray-600 font-normal mb-1">Close Date</p>
                     <p class="font-bold text-xs sm:text-sm md:text-base text-gray-800">{{ closeDate }}</p>
                 </div>
 
-                <!-- Booking Close Time -->
+                <!-- Close Time -->
                 <div class="flex flex-col">
                     <p class="text-[10px] sm:text-xs text-gray-600 font-normal mb-1">Close Time</p>
                     <p class="font-bold text-xs sm:text-sm md:text-base text-gray-800">{{ closeTime }}</p>
@@ -112,7 +111,7 @@
         </div>
     </div>
 
-    <div class="bg-sky-600 fixed bottom-[0vh] top-[45vh] h-[] lg:h-[55vh] w-[100vw]">
+    <div class="bg-white fixed bottom-[0vh] top-[45vh] h-[] lg:h-[55vh] w-[100vw]">
 
     </div>
 
