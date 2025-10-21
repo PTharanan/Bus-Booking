@@ -1,21 +1,25 @@
 <div class="min-h-screen bg-cover bg-center flex flex-col items-center overflow-hidden"
     [ngStyle]="{'background-image': 'url(../../../../assets/home-bg.png)'}">
 
-    <div class=" pt-[10vh] lg:pt-[12vh]">
+  <div class="min-h-screen bg-cover bg-center flex flex-col items-center overflow-hidden"
+    [ngStyle]="{'background-image': 'url(../../../../assets/home-bg.png)'}">
+
+    <!-- Header Section -->
+    <div class="pt-[10vh] lg:pt-[12vh]">
         <div
-            class="flex flex-col lg:flex-row lg:flex-wrap items-center w-[100vw] lg:w-[90vw] mt-6 sm:m-3 md:m-4 p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl backdrop-blur-[60px] bg-white/40 shadow-lg hover:shadow-xl transition-shadow">
+            class="flex flex-col lg:flex-row lg:flex-wrap items-center w-full lg:w-[90vw] mt-6 sm:m-3 md:m-4 p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl backdrop-blur-[60px] bg-white/40 shadow-lg hover:shadow-xl transition-shadow">
 
             <!-- Bus Image -->
-            <div class="w-full hidden lg:block lg:w-auto h-auto lg:h-[20vh] mb-4 lg:mb-0 lg:mr-4 flex justify-center lg:justify-start">
+            <div class="w-full lg:w-auto flex justify-center lg:justify-start mb-4 lg:mb-0 lg:mr-4">
                 <img src="../../../../assets/bus.jpg" alt="Bus-img"
                     class="w-full sm:w-[200px] md:w-[250px] lg:w-[15vw] rounded-lg object-cover shadow-md" />
             </div>
 
-            <!-- Desktop: Original Row Layout -->
+            <!-- Details Section -->
             <div class="lg:flex lg:flex-row lg:items-center lg:flex-1 lg:gap-4">
 
                 <!-- Departure & Date -->
-                <div class="flex flex-col justify-center font-bold w-[8vw] h-[20vh]">
+                <div class="flex flex-col justify-center font-bold w-full sm:w-[50%] lg:w-[8vw] h-auto lg:h-[20vh]">
                     <p class="text-xs font-normal text-gray-600 mb-2">Departure</p>
                     <p class="text-base mb-4">{{ from }}</p>
                     <p class="text-xs font-normal text-gray-600 mb-2">Date</p>
@@ -23,21 +27,21 @@
                 </div>
 
                 <!-- Arrow -->
-                <div class="flex flex-col justify-center w-[6vw] h-[20vh] items-center">
+                <div class="flex justify-center w-full lg:w-[6vw] h-auto lg:h-[20vh] my-4 lg:my-0">
                     <img src="../../../../../assets/arrow-right.png" alt="arrow"
                         class="w-[3vw] min-w-[30px] opacity-70" />
                 </div>
 
                 <!-- Arrival & Duration -->
-                <div class="flex flex-col justify-center font-bold w-[8vw] h-[20vh]">
+                <div class="flex flex-col justify-center font-bold w-full sm:w-[50%] lg:w-[8vw] h-auto lg:h-[20vh]">
                     <p class="text-xs font-normal text-gray-600 mb-2">Arrival</p>
                     <p class="text-base mb-4">{{ to }}</p>
-                    <p class="text-xs font-normal text-gray-600 mb-2">Depature Time</p>
+                    <p class="text-xs font-normal text-gray-600 mb-2">Departure Time</p>
                     <p class="text-sm">{{ Depaturetime }}</p>
                 </div>
 
                 <!-- Booking Close Info -->
-                <div class="flex flex-col justify-center font-bold w-[10vw] h-[20vh]">
+                <div class="flex flex-col justify-center font-bold w-full sm:w-[50%] lg:w-[10vw] h-auto lg:h-[20vh]">
                     <p class="text-xs font-normal text-gray-600 mb-2">Booking Close Date</p>
                     <p class="text-sm mb-4">{{ closeDate }}</p>
                     <p class="text-xs font-normal text-gray-600 mb-2">Booking Close Time</p>
@@ -45,32 +49,32 @@
                 </div>
             </div>
 
-            <!-- Price, Seats & Button Section (All Screens) -->
+            <!-- Price & Button Section -->
             <div
-                class="w-full lg:w-auto flex flex-col sm:flex-row lg:flex-col items-center justify-between lg:justify-center gap-3 sm:gap-4 lg:gap-4 lg:ml-6 lg:w-[18vw] lg:h-[20vh] mt-4 lg:mt-0">
+                class="w-full lg:w-auto flex flex-col sm:flex-row lg:flex-col items-center justify-between gap-4 lg:ml-6 lg:w-[18vw] lg:h-[20vh] mt-4 lg:mt-0">
 
                 <!-- Price & Seats -->
-                <div class="flex flex-col items-center lg:items-center w-full sm:w-auto">
+                <div class="flex flex-col items-center lg:items-start w-full sm:w-auto">
                     <p class="text-gray-800 text-2xl sm:text-3xl md:text-3xl lg:text-2xl font-bold">
                         Rs {{ price }}
                     </p>
-                    <span class="text-xs sm:text-sm md:text-base text-gray-600 mt-2 whitespace-nowrap">
+                    <span class="text-xs sm:text-sm md:text-base text-gray-600 mt-2">
                         Available: <span class="font-semibold text-green-600">{{ freeSeats }} Seats</span>
                     </span>
-                    <span class="text-xs sm:text-sm md:text-base text-gray-800 mt-2 whitespace-nowrap">
+                    <span class="text-xs sm:text-sm md:text-base text-gray-800 mt-2">
                         Duration: <span class="font-semibold text-black">{{ Duration }} Hours</span>
                     </span>
                 </div>
 
                 <!-- Book Button -->
                 <button
-                    class="bg-black hover:bg-gray-800 active:bg-gray-900 text-white text-center rounded-lg px-6 sm:px-8 md:px-10 lg:px-6 py-2.5 sm:py-3 md:py-3 lg:py-2.5 w-full sm:w-auto lg:w-full cursor-pointer font-semibold text-sm sm:text-base transition-all transform active:scale-95 shadow-md hover:shadow-lg">
+                    class="bg-black hover:bg-gray-800 text-white text-center rounded-lg px-4 sm:px-8 md:px-10 py-2 sm:py-3 font-semibold text-sm sm:text-base shadow-md hover:shadow-lg transition-all transform active:scale-95">
                     Hide Seat Chart
                 </button>
             </div>
-
         </div>
     </div>
+</div>
 
     <div class="bg-sky-600 fixed bottom-[0vh] top-[45vh] h-[] lg:h-[55vh] w-[100vw]">
 
