@@ -111,38 +111,50 @@
 
         </div>
     </div>
+    <!-- seat part -->
+    <!-- 🪑 Seat Layout Responsive Section -->
+    <div class="flex items-center justify-center fixed bottom-0 left-0 right-0 bg-white 
+         h-[55vh] sm:h-[60vh] md:h-[65vh] lg:h-[55vh] overflow-y-auto lg:overflow-hidden 
+         transition-all duration-500">
 
-    <div class="flex items-center justify-center bg-white fixed bottom-[0vh] top-[45vh] h-[] lg:h-[55vh] w-[100vw]">
-        <div class="flex items-center justify-center fixed bottom-[1vh] h-[50vh] w-[100vw]">
-            <div class=" rotate-0 lg:rotate-270">
-                <!-- Legend -->
-                <div class="flex flex-wrap justify-center gap-4 mb-6">
-                    <div class="flex items-center gap-2">
-                        <div class="w-4 h-4 border border-gray-500 bg-white"></div>
-                        <span class="text-xs sm:text-sm">Available Seats</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <div class="w-4 h-4 bg-green-600"></div>
-                        <span class="text-xs sm:text-sm">Processing Seats</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <div class="w-4 h-4 bg-red-600"></div>
-                        <span class="text-xs sm:text-sm">Booked Seats</span>
-                    </div>
+        <!-- Inner Container -->
+        <div class="flex flex-col items-center justify-center 
+           w-[95vw] sm:w-[85vw] md:w-[75vw] lg:w-[28vw] 
+           h-auto py-6 lg:h-[90vh] 
+           rotate-0 lg:rotate-270 
+           transition-transform duration-500 ease-in-out">
+
+            <!-- Legend -->
+            <div class="flex flex-wrap justify-center gap-4 mb-6 text-xs sm:text-sm">
+                <div class="flex items-center gap-2">
+                    <div class="w-4 h-4 border border-gray-300 bg-white"></div>
+                    <span>Available</span>
                 </div>
+                <div class="flex items-center gap-2">
+                    <div class="w-4 h-4 bg-green-600 border border-white"></div>
+                    <span>Processing</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="w-4 h-4 bg-red-600 border border-white"></div>
+                    <span>Booked</span>
+                </div>
+            </div>
 
-                <!-- Seat Rows -->
-                <div *ngFor="let row of rows" class="flex justify-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-                    <div *ngFor="let seat of row" (click)="toggleSeat(seat)" [ngClass]="{
-                        'bg-white border border-gray-400 text-black': getSeatStatus(seat) === 'available',
-                        'bg-green-600 text-white': getSeatStatus(seat) === 'processing',
-                        'bg-red-600 text-white cursor-not-allowed': getSeatStatus(seat) === 'booked'}"
-                        class="w-8 h-8 sm:w-10 sm:h-10 rounded-md flex items-center justify-center text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer">
-                        <ng-container *ngIf="seat">{{ seat }}</ng-container>
-                    </div>
+            <!-- Seat Rows -->
+            <div *ngFor="let row of rows" class="flex justify-center gap-2 sm:gap-3 mb-2 sm:mb-3 flex-wrap">
+
+                <div *ngFor="let seat of row" (click)="toggleSeat(seat)" [ngClass]="{
+                    'invisible': seat === null,'bg-white border border-gray-400 text-black': getSeatStatus(seat) === 'available',
+                    'bg-green-600 text-white': getSeatStatus(seat) === 'processing',
+                    'bg-red-600 text-white cursor-not-allowed': getSeatStatus(seat) === 'booked'}" class="w-8 h-8 sm:w-10 sm:h-10 rounded-md flex items-center justify-center 
+                    text-xs sm:text-sm font-semibold 
+                    transition-all duration-300 cursor-pointer 
+                    shadow-md hover:scale-105">
+                    <ng-container *ngIf="seat">{{ seat }}</ng-container>
                 </div>
             </div>
         </div>
     </div>
+
 
 </div>
