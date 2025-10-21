@@ -6,7 +6,8 @@
             class="flex flex-col lg:flex-row lg:flex-wrap items-center w-[100vw] lg:w-[90vw] mt-6 sm:m-3 md:m-4 p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl backdrop-blur-[60px] bg-white/40 shadow-lg hover:shadow-xl transition-shadow">
 
             <!-- Bus Image -->
-            <div class="w-full lg:w-auto h-auto hidden lg:block lg:h-[20vh] mb-4 lg:mb-0 lg:mr-4 flex justify-center lg:justify-start">
+            <div
+                class="w-full lg:w-auto h-auto hidden lg:block lg:h-[20vh] mb-4 lg:mb-0 lg:mr-4 flex justify-center lg:justify-start">
                 <img src="../../../../assets/bus.jpg" alt="Bus-img"
                     class="w-full sm:w-[200px] md:w-[250px] lg:w-[15vw] rounded-lg object-cover shadow-md" />
             </div>
@@ -111,8 +112,37 @@
         </div>
     </div>
 
-    <div class="bg-white fixed bottom-[0vh] top-[45vh] h-[] lg:h-[55vh] w-[100vw]">
+    <div class="flex items-center justify-center bg-white fixed bottom-[0vh] top-[45vh] h-[] lg:h-[55vh] w-[100vw]">
+        <div class="flex items-center justify-center fixed bottom-[1vh] h-[50vh] w-[100vw]">
+            <div class=" rotate-0 lg:rotate-270">
+                <!-- Legend -->
+                <div class="flex flex-wrap justify-center gap-4 mb-6">
+                    <div class="flex items-center gap-2">
+                        <div class="w-4 h-4 border border-gray-500 bg-white"></div>
+                        <span class="text-xs sm:text-sm">Available Seats</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-4 h-4 bg-green-600"></div>
+                        <span class="text-xs sm:text-sm">Processing Seats</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-4 h-4 bg-red-600"></div>
+                        <span class="text-xs sm:text-sm">Booked Seats</span>
+                    </div>
+                </div>
 
+                <!-- Seat Rows -->
+                <div *ngFor="let row of rows" class="flex justify-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                    <div *ngFor="let seat of row" (click)="toggleSeat(seat)" [ngClass]="{
+                        'bg-white border border-gray-400 text-black': getSeatStatus(seat) === 'available',
+                        'bg-green-600 text-white': getSeatStatus(seat) === 'processing',
+                        'bg-red-600 text-white cursor-not-allowed': getSeatStatus(seat) === 'booked'}"
+                        class="w-8 h-8 sm:w-10 sm:h-10 rounded-md flex items-center justify-center text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer">
+                        <ng-container *ngIf="seat">{{ seat }}</ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>
