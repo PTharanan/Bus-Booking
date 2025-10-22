@@ -11,6 +11,8 @@ import { Search } from './navbar/home/search/search';
 import { ManageCustomer } from './navbar/admin/manage-customer/manage-customer';
 import { Seats } from './navbar/home/seats/seats';
 import { Passenger } from './navbar/home/passenger/passenger';
+import { Ticket } from './navbar/home/ticket/ticket';
+
 
 
 export const routes: Routes = [
@@ -33,6 +35,10 @@ export const routes: Routes = [
     {
         path: 'passenger',
         component: Passenger
+    },
+    {
+        path: 'ticket',
+        component: Ticket
     },
     {
         path: 'admin',

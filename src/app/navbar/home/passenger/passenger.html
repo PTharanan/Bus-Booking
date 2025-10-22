@@ -1,4 +1,150 @@
 <div class="min-h-screen bg-cover bg-center flex flex-col items-center overflow-hidden"
     [ngStyle]="{'background-image': 'url(../../../../assets/home-bg.png)'}">
-    
+
+    <div class=" mt-[10vh] lg:mt-[12vh]">
+        <div
+            class="flex flex-col lg:flex-row lg:flex-wrap items-center w-[100vw] lg:w-[90vw] mt-6 sm:m-3 md:m-4 p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl backdrop-blur-[60px] bg-white/40 shadow-lg hover:shadow-xl transition-shadow">
+
+            <!-- Bus Image -->
+            <div
+                class="w-full lg:w-auto h-auto hidden lg:block lg:h-[20vh] mb-4 lg:mb-0 lg:mr-4 flex justify-center lg:justify-start">
+                <img src="../../../../assets/bus.jpg" alt="Bus-img"
+                    class="w-full sm:w-[200px] md:w-[250px] lg:w-[15vw] rounded-lg object-cover shadow-md" />
+            </div>
+
+            <!-- Mobile & Tablet: Row Layout for Info -->
+            <div class="w-full lg:hidden flex flex-wrap justify-between gap-4 mb-4">
+                <!-- Departure -->
+                <div class="flex flex-col">
+                    <p class="text-[10px] sm:text-xs text-gray-600 font-normal mb-1">Departure</p>
+                    <p class="font-bold text-sm sm:text-base md:text-lg text-gray-800">{{ from }}</p>
+                </div>
+
+                <!-- Arrival -->
+                <div class="flex flex-col">
+                    <p class="text-[10px] sm:text-xs text-gray-600 font-normal mb-1">Arrival</p>
+                    <p class="font-bold text-sm sm:text-base md:text-lg text-gray-800">{{ to }}</p>
+                </div>
+
+                <!-- Date -->
+                <div class="flex flex-col">
+                    <p class="text-[10px] sm:text-xs text-gray-600 font-normal mb-1">Date</p>
+                    <p class="font-bold text-xs sm:text-sm md:text-base text-gray-800">{{ date }}</p>
+                </div>
+
+                <!-- Departure Time -->
+                <div class="flex flex-col">
+                    <p class="text-[10px] sm:text-xs text-gray-600 font-normal mb-1">Departure Time</p>
+                    <p class="font-bold text-xs sm:text-sm md:text-base text-gray-800">{{ Depaturetime }}</p>
+                </div>
+
+                <!-- Close Date -->
+                <div class="flex flex-col">
+                    <p class="text-[10px] sm:text-xs text-gray-600 font-normal mb-1">Close Date</p>
+                    <p class="font-bold text-xs sm:text-sm md:text-base text-gray-800">{{ closeDate }}</p>
+                </div>
+
+                <!-- Close Time -->
+                <div class="flex flex-col">
+                    <p class="text-[10px] sm:text-xs text-gray-600 font-normal mb-1">Close Time</p>
+                    <p class="font-bold text-xs sm:text-sm md:text-base text-gray-800">{{ closeTime }}</p>
+                </div>
+            </div>
+
+            <!-- Desktop: Original Row Layout -->
+            <div class="hidden lg:flex lg:flex-row lg:items-center lg:flex-1 lg:gap-4">
+
+                <!-- Departure & Date -->
+                <div class="flex flex-col justify-center font-bold w-[8vw] h-[20vh]">
+                    <p class="text-xs font-normal text-gray-600 mb-2">Departure</p>
+                    <p class="text-base mb-4">{{ from }}</p>
+                    <p class="text-xs font-normal text-gray-600 mb-2">Date</p>
+                    <p class="text-sm">{{ date }}</p>
+                </div>
+
+                <!-- Arrow -->
+                <div class="flex flex-col justify-center w-[6vw] h-[20vh] items-center">
+                    <img src="../../../../../assets/arrow-right.png" alt="arrow"
+                        class="w-[3vw] min-w-[30px] opacity-70" />
+                </div>
+
+                <!-- Arrival & Duration -->
+                <div class="flex flex-col justify-center font-bold w-[8vw] h-[20vh]">
+                    <p class="text-xs font-normal text-gray-600 mb-2">Arrival</p>
+                    <p class="text-base mb-4">{{ to }}</p>
+                    <p class="text-xs font-normal text-gray-600 mb-2">Depature Time</p>
+                    <p class="text-sm">{{ Depaturetime }}</p>
+                </div>
+
+                <!-- Booking Close Info -->
+                <div class="flex flex-col justify-center font-bold w-[10vw] h-[20vh]">
+                    <p class="text-xs font-normal text-gray-600 mb-2">Booking Close Date</p>
+                    <p class="text-sm mb-4">{{ closeDate }}</p>
+                    <p class="text-xs font-normal text-gray-600 mb-2">Booking Close Time</p>
+                    <p class="text-sm">{{ closeTime }}</p>
+                </div>
+            </div>
+
+            <!-- Price, Seats & Button Section (All Screens) -->
+            <div
+                class="w-full lg:w-auto flex flex-col sm:flex-row lg:flex-col items-center justify-between lg:justify-center gap-3 sm:gap-4 lg:gap-4 lg:ml-6 lg:w-[18vw] lg:h-[20vh] mt-4 lg:mt-0">
+
+                <!-- Price & Seats -->
+                <div class="flex flex-col items-center lg:items-center w-full sm:w-auto">
+                    <p class="text-gray-800 text-2xl sm:text-3xl md:text-3xl lg:text-2xl font-bold">
+                        Rs {{ price }}
+                    </p>
+                    <span class="text-xs sm:text-sm md:text-base text-gray-600 mt-2 whitespace-nowrap">
+                        Available: <span class="font-semibold text-green-600">{{ freeSeats }} Seats</span>
+                    </span>
+                    <span class="text-xs sm:text-sm md:text-base text-gray-800 mt-2 whitespace-nowrap">
+                        Duration: <span class="font-semibold text-black">{{ Duration }} Hours</span>
+                    </span>
+                    <span class="font-semibold text-xs sm:text-sm md:text-base text-gray-800 mt-2 whitespace-nowrap">
+                        Seat No. <span class="font-semibold text-sky-600 text-black">{{ Seat_no }}</span>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="fixed bottom-[0vh] h-[55vh] w-[100vw] flex items-center justify-center">
+        <form class="bg-white/80 backdrop-blur-xl rounded-xl w-full max-w-lg flex flex-col gap-5 p-4">
+
+            <!-- Full Name -->
+            <div class="flex flex-col">
+                <label class="text-gray-700 text-sm font-semibold mb-2">Full Name</label>
+                <input id="fullname" #nameField type="text" [(ngModel)]="fullname" name="fullname"
+                    placeholder="Enter your name" required (keydown.enter)="focusNext($any($event), 'mobileNo')"
+                    class="px-4 py-3 border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition duration-200" />
+            </div>
+
+            <!-- Mobile Number -->
+            <div class="flex flex-col">
+                <label class="text-gray-700 text-sm font-semibold mb-2">Mobile Number</label>
+                <input id="mobileNo" type="text" maxlength="10" [(ngModel)]="mobileNo" name="mobileNo"
+                    placeholder="07XXXXXXXX" required pattern="^[0-9]*$" (input)="filterNumbers($event)"
+                    (keydown.enter)="focusNext($any($event), 'NIC')"
+                    class="px-4 py-3 border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition duration-200" />
+            </div>
+
+            <!-- NIC Number -->
+            <div class="flex flex-col">
+                <label class="text-gray-700 text-sm font-semibold mb-2">NIC Number</label>
+                <input id="NIC" type="text" [(ngModel)]="NIC" name="NIC" placeholder="123456789V" required
+                    (keydown.enter)="proceedToBook()"
+                    class="px-4 py-3 border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition duration-200" />
+            </div>
+
+            <!-- Submit Button -->
+            <div class="flex justify-center mt-6">
+                <button type="button" (click)="proceedToBook()"
+                    class="w-full sm:w-auto px-8 py-3 bg-gradient-to-r from-sky-600 to-blue-500 hover:from-sky-500 hover:to-blue-400 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-transform transform active:scale-95">
+                    Proceed to Book
+                </button>
+            </div>
+        </form>
+    </div>
 </div>
