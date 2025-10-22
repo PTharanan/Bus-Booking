@@ -45,7 +45,6 @@ export class Passenger implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // Auto-focus Full Name field
     this.nameField.nativeElement.focus();
   }
 
