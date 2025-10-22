@@ -10,6 +10,7 @@ import { ManageSchedule } from './navbar/admin/manage-schedule/manage-schedule';
 import { Search } from './navbar/home/search/search';
 import { ManageCustomer } from './navbar/admin/manage-customer/manage-customer';
 import { Seats } from './navbar/home/seats/seats';
+import { Passenger } from './navbar/home/passenger/passenger';
 
 
 export const routes: Routes = [
@@ -28,6 +29,10 @@ export const routes: Routes = [
     {
         path: 'seats',
         component: Seats
+    },
+    {
+        path: 'passenger',
+        component: Passenger
     },
     {
         path: 'admin',
