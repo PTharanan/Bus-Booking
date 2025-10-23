@@ -35,7 +35,6 @@ export class Ticket {
 
     autoTable(doc, {
       startY: 70,
-      head: [['Field', 'Value']],
       body: [
         ['From', this.data.from],
         ['To', this.data.to],
