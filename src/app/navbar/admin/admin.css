@@ -1,5 +1,5 @@
 .bg-img-con {
-  background-image: url("../../../assets/home-bg.png");
+  background-image: url("../../../../public/assets/home-bg.png");
   position: fixed;
   right: 0;
 }
